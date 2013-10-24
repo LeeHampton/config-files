@@ -1,0 +1,9 @@
+[user]
+	name = Lee Hampton
+	email = leejhampton@gmail.com
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true
+[alias]
+    pushcur = ! git branch | grep '*' | sed 's/* //' | xargs git push origin
