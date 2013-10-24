@@ -7,3 +7,4 @@
 	ui = true
 [alias]
     pushcur = ! git branch | grep '*' | sed 's/* //' | xargs git push origin
+    pullcur = ! git branch | grep '*' | sed 's/* //' | xargs git pull origin
