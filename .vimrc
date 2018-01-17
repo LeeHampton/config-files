@@ -1,3 +1,5 @@
+execute pathogen#infect()
+colorscheme stereokai
 set nocompatible
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -9,6 +11,7 @@ endif
 " ================ General Config ====================
 
 set number                      "Line numbers are good
+" set relativenumber              " Relative line numbers are good too
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -16,6 +19,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set ruler                       "File stats at bottom
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -23,6 +27,11 @@ set autoread                    "Reload files changed outside vim
 set hidden
 
 "turn on syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 syntax on
 
 " Change leader to a comma because the backslash is too far away
@@ -57,9 +66,9 @@ set undofile
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set expandtab
 
 filetype plugin on
@@ -102,7 +111,11 @@ set sidescrolloff=15
 set sidescroll=1
 
 " Use ctrl-[hjkl] to select the active split
-nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
-nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
-nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+" Column width enforcement
+highlight ColorColumn ctermbg=darkgray ctermfg=grey guibg=#592929
+set colorcolumn=80
