@@ -6,5 +6,29 @@
 [color]
 	ui = true
 [alias]
+    prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     pushcur = ! git branch | grep '*' | sed 's/* //' | xargs git push origin
     pullcur = ! git branch | grep '*' | sed 's/* //' | xargs git pull origin
+    pushfcur = ! git branch | grep '*' | sed 's/* //' | xargs git push -f origin
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lnc = log --pretty=format:"%h\\ %s\\ [%cn]" # No color -- for unix piping
+    fl = log -u # History of a file (file log)
+    f = "!git ls-files | grep -i" # Find a file path in codebase
+    lt = describe --tags --abbrev=0 # last tag
+    cp = cherry-pick
+    st = status -s
+    cl = clone
+    ci = commit
+    co = checkout
+    cob = checkout -b
+    mg = merge --no-ff --no-edit
+    amend = commit --amend
+    br = branch
+    brd = branch -D
+    diff = diff --word-diff
+    dc = diff --cached
+[branch]
+	autosetuprebase = always
+[http]
+	postBuffer = 524288000
